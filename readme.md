@@ -2,7 +2,7 @@
 
 + use native import/export module, hosted as static github page:  https://rsteam02.github.io/MatCalc_with_multiple_operands/
 + select number of rows, cols, (dimension, max. 25x25)
-+ autoswap row/col if operation is * and number of row/col aren't equivalent  
++ autoswap row/col if operation is *, matrix is generated randomly and number of row/col aren't equivalent  
 + enter or generate random matrix (first operand)
 + choose operation +,- or *
 + enter or generate random matrix (second operand)
