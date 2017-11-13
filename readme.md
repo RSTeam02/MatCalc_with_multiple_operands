@@ -1,7 +1,7 @@
 # Matrix Calculator with UI-Frontend and multiple operands
 
 + select number of rows, cols, (dimension, max. 25x25)
-+ autoswap row/col if operation is * and number row/col aren't equivalent  
++ autoswap row/col if operation is * and number of row/col aren't equivalent  
 + enter or generate random matrix (first operand)
 + choose operation +,- or *
 + enter or generate random matrix (second operand)
