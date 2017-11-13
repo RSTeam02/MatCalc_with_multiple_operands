@@ -1,0 +1,94 @@
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<style>
+			
+		ul#nav li {
+			display: inline;
+		}
+
+		ul#nav {
+
+			margin: auto;
+			padding: 5px 5%;
+			text-align: center;
+		}
+
+
+		pre {
+			font-family: Consolas, monospace
+		}
+
+		td,
+		th {
+			color: black;
+			padding: .2em .2em .2em .2em;
+			cursor: pointer;
+
+		}
+
+		.bottom {
+			border-bottom: 1px solid black;
+		}
+
+		#right {
+			border-right: 1px solid black;
+		}
+
+		#btmRight {
+			border-bottom: 1px solid black;
+			border-right: 1px solid black;
+		}
+
+		#result {
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Matrix Calculator</h1>
+
+
+	<form>
+		<fieldset>
+			<legend id="infoRow">Rows</legend>
+			<input class="inputUI" type="range" min="2" max="25" value="2" step="1" id="rowSlider" name="number">
+		</fieldset>
+		<fieldset>
+			<legend id="infoCol">Columns</legend>
+			<input class="inputUI" type="range" min="2" max="25" value="2" step="1" id="colSlider" name="number">
+		</fieldset>
+
+		<fieldset>
+			<input type=checkbox id="rndCb" />
+			<input type=button id="rnd" value="random Mat" />
+			<input type=button class="evalBtn" id="res" value="result A&#x25E6;B" />
+			<input type=button id="clear" value="clear all" />
+		</fieldset>
+
+		<fieldset>
+			<legend>Select Operation</legend>
+			<input class="evalBtn" type="button" id="add" name="mode" value="+" />
+			<input class="evalBtn" type="button" id="sub" name="mode" value="-" />
+			<input class="evalBtn" type="button" id="mult" name="mode" value="*" />
+			<input type="checkbox" id="swapAB" name="swap" />B &#x25E6; A
+		</fieldset>
+
+
+	</form>
+	<pre id="inputField"></pre>
+	<br>
+	<div id="ahref">
+		<a href="" id="download"></a>
+	</div>
+	<br>
+	<table id="matInfo">
+	</table>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="main.js" type="module"></script>
+</body>
+
+</html>
