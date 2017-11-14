@@ -45,12 +45,13 @@ export class Controller {
             row: parseInt($("#rowSlider").val()),
             col: parseInt($("#colSlider").val())
         }
-        //flip row, col when second random mat is generated and multiplied
+        //swap row, col when second random mat is generated and multiplied
         if (document.getElementById("rndCb").checked) {
-            if (this.op[this.numOfMat - 1] === "*") {
-                [mat.row, mat.col] = [mat.col, mat.row];
+            if (this.op[this.numOfMat - 1] === "*") { 
+                this.setRangeSlider(this.arr[this.numOfMat - 1], true);
             }
         }
+
         return mat;
     }
 
@@ -62,15 +63,22 @@ export class Controller {
     }
 
     //used to set sliders of result dim 
-    setRangeSlider(mat) {
-        $("#rowSlider").val(mat.length);
-        $("#colSlider").val(mat[0].length);
+    setRangeSlider(mat, swap = false) {
+        let row = mat.length;
+        let col = mat[0].length;
+
+        if (swap) {
+            row = mat[0].length;
+            col = mat.length;
+        }
+
+        $("#rowSlider").val(row);
+        $("#colSlider").val(col);
     }
 
     //init dim values when app starts
     initNewMat() {
         let res = "";
-        //super.saveSetting("lastSettingMatCalcRange", inputUI);                  
         $("#inputField").html(this.domIO.inputHtml(this.get2d(), this.numOfMat));
         this.nullMatrix();
         this.fieldListener();
@@ -114,10 +122,13 @@ export class Controller {
                 this.numOfMat--;
                 this.onceChecked = true;
             }
+
             this.arr.pop();
             [this.arr[this.arr.length - 2], this.arr[this.arr.length - 1]] = [this.arr[this.arr.length - 1], this.arr[this.arr.length - 2]];
             this.result = new Matrix(this.arr[this.arr.length - 2]);
+            this.setRangeSlider(this.result.getMatrix());
             this.calc(false, this.arr.length - 2);
+            this.dimInfo();
         });
 
         //enable or disable random btn with checkbox
